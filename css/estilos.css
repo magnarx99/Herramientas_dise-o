@@ -768,7 +768,7 @@ ul {
   justify-content: space-between;
   /* degradado oscuro encima de la imagen para que el texto se lea */
   background: linear-gradient(90deg, rgba(10, 15, 26, 0.85), rgba(10, 15, 26, 0.2)),
-              url('../img/biblioteca-cabina.svg') center / cover;
+              url('../img/biblioteca-cabina.webp') center / cover;
 }
 
 .portada-juego h1 {
