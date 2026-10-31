@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <!-- Esta línea hace que la página se adapte al ancho del celular -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CDGAMES | Biblioteca</title>
+  <meta name="description" content="Tu biblioteca de juegos en CDGAMES.">
+  <link rel="icon" href="img/logo-cdgames-peq.png">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+  <!-- ============ ENCABEZADO ============ -->
+  <header class="encabezado">
+    <div class="contenedor">
+      <div class="encabezado-superior">
+        <a class="logo" href="index.html" title="Ir al inicio">
+          <img src="img/logo-cdgames-peq.png" alt="Logo de CD Games: consola portátil con un disco que se derrite">
+        </a>
+        <p class="marca">CDGAMES</p>
+        <div class="controles" aria-hidden="true">
+          <div class="flechas"><span>&lsaquo;</span><span>&rsaquo;</span></div>
+          <div class="puntos"><span></span><span></span><span></span></div>
+        </div>
+      </div>
+
+      <nav class="barra-menu" aria-label="Menú principal">
+        <ul class="menu">
+          <li><a href="index.html">Tienda</a></li>
+          <li><a class="activo" href="biblioteca.html">Biblioteca</a></li>
+          <li><a href="#comunidad">Comunidad</a></li>
+          <li><a href="#perfil">Perfil</a></li>
+        </ul>
+        <div class="usuario">
+          <a class="boton boton-oscuro" href="#instalar">Instalar</a>
+          <span class="notificacion" title="Notificaciones">
+            <svg class="icono" viewBox="0 0 24 24"><path d="M6 16v-5a6 6 0 0 1 12 0v5l2 2H4z"/><path d="M10 21h4"/></svg>
+          </span>
+          <img class="avatar" src="img/avatar.svg" alt="Foto de perfil">
+        </div>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- ============ CONTENIDO PRINCIPAL ============ -->
+  <main class="biblioteca">
+
+    <!-- Menú lateral con los juegos del usuario -->
+    <aside class="barra-lateral">
+      <form class="buscador" role="search">
+        <svg class="icono" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input type="search" placeholder="Buscar en la biblioteca" aria-label="Buscar en la biblioteca">
+      </form>
+      <p class="filtro">Todos los juegos (7)</p>
+      <h2>Juegos instalados</h2>
+      <ul class="lista-juegos">
+        <li><a class="activo" href="biblioteca.html"><img class="miniatura" src="img/eclipse-portada.svg" alt="">Eclipse Frontier<span class="estado"></span></a></li>
+        <li><a href="juego.html"><img class="miniatura" src="img/neon-pursuit.svg" alt="">Neon Pursuit<span class="estado"></span></a></li>
+        <li><a href="juego.html"><img class="miniatura" src="img/runa-acero.svg" alt="">Runa y Acero<span class="estado actualizar"></span></a></li>
+        <li><a href="juego.html"><img class="miniatura" src="img/abismo-profundo.svg" alt="">Abismo Profundo<span class="estado"></span></a></li>
+        <li><a href="juego.html"><img class="miniatura" src="img/cap-mechas.svg" alt="">Titanes de Hierro<span class="estado actualizar"></span></a></li>
+        <li><a href="juego.html"><img class="miniatura" src="img/cap-estacion.svg" alt="">Estación Orión<span class="estado"></span></a></li>
+        <li><a href="juego.html"><img class="miniatura" src="img/cap-nebulosa.svg" alt="">Nebulosa Zero<span class="estado"></span></a></li>
+      </ul>
+    </aside>
+
+    <div>
+      <!-- Portada del juego seleccionado -->
+      <section class="portada-juego">
+        <div>
+          <h1>Eclipse Frontier</h1>
+          <ul class="etiquetas">
+            <li>Instalado</li>
+            <li>Nube</li>
+          </ul>
+        </div>
+        <div class="jugar">
+          <a class="boton boton-naranja" href="juego.html">
+            <svg class="icono" viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z" fill="currentColor"/></svg>
+            JUGAR
+          </a>
+          <p class="estadistica">Última sesión <strong>Hoy</strong></p>
+          <p class="estadistica">Tiempo de juego <strong>42,5 horas</strong></p>
+        </div>
+        <span class="ajustes" title="Ajustes">
+          <svg class="icono" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/></svg>
+        </span>
+      </section>
+
+      <!-- Actividad y logros -->
+      <div class="biblioteca-contenido">
+        <section>
+          <h2 class="etiqueta-seccion">Actividad reciente y novedades</h2>
+          <article class="noticia tarjeta">
+            <img src="img/noticia-hangar.svg" alt="Tripulación en el hangar de una estación espacial">
+            <div class="noticia-texto">
+              <span>Actualización</span>
+              <h3>Versión 2.4: nuevo hangar y misiones cooperativas</h3>
+              <p>Mejora tu nave en el nuevo hangar orbital y completa misiones con hasta cuatro amigos.</p>
+            </div>
+          </article>
+        </section>
+
+        <section>
+          <h2 class="etiqueta-seccion">Logros recientes</h2>
+          <div class="logros">
+            <article class="logro tarjeta">
+              <span class="logro-icono" style="background-color: var(--amarillo);">
+                <svg class="icono" viewBox="0 0 24 24"><path d="M8 4h8v5a4 4 0 0 1-8 0z"/><path d="M12 13v4M8 21h8M16 6h3a3 3 0 0 1-3 4M8 6H5a3 3 0 0 0 3 4"/></svg>
+              </span>
+              <div>
+                <h3>Piloto legendario</h3>
+                <p>Gana 50 batallas espaciales sin perder tu nave.</p>
+              </div>
+            </article>
+            <article class="logro tarjeta">
+              <span class="logro-icono" style="background-color: var(--naranja);">
+                <svg class="icono" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m12 7 1.5 3.2 3.5.4-2.6 2.4.7 3.5L12 14.8l-3.1 1.7.7-3.5L7 10.6l3.5-.4z"/></svg>
+              </span>
+              <div>
+                <h3>Explorador estelar</h3>
+                <p>Descubre 25 sistemas solares diferentes.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- ============ PIE DE PÁGINA ============ -->
+  <footer class="pie">
+    <div class="contenedor">
+      <div class="pie-columnas">
+        <div>
+          <div class="pie-marca">
+            <img src="img/logo-cdgames-peq.png" alt="Logo de CD Games">
+            <span>CDGAMES</span>
+          </div>
+          <p>Tu tienda de videojuegos: descubre, compra y juega los mejores títulos con la comunidad gamer más grande de la región.</p>
+          <div class="redes">
+            <a href="#comunidad" title="Chat de la comunidad"><svg class="icono" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg></a>
+            <a href="#videos" title="Videos"><svg class="icono" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="m10 9 5 3-5 3z"/></svg></a>
+            <a href="#fotos" title="Fotos"><svg class="icono" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="14" rx="3"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l2-2h4l2 2"/></svg></a>
+            <a href="#correo" title="Correo"><svg class="icono" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <h3>Tienda</h3>
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="#novedades">Novedades</a></li>
+            <li><a href="#ofertas">Más vendidos</a></li>
+            <li><a href="#ofertas">Ofertas</a></li>
+            <li><a href="#proximamente">Próximamente</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Ayuda</h3>
+          <ul>
+            <li><a href="#ayuda">Centro de ayuda</a></li>
+            <li><a href="#estado">Estado del servicio</a></li>
+            <li><a href="#reembolsos">Reembolsos</a></li>
+            <li><a href="#seguridad">Seguridad de la cuenta</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Empresa</h3>
+          <ul>
+            <li><a href="#acerca">Acerca de</a></li>
+            <li><a href="#empleo">Trabaja con nosotros</a></li>
+            <li><a href="#prensa">Prensa</a></li>
+            <li><a href="#desarrolladores">Desarrolladores</a></li>
+            <li><a href="#blog">Blog</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="#terminos">Términos del servicio</a></li>
+            <li><a href="#privacidad">Política de privacidad</a></li>
+            <li><a href="#cookies">Política de cookies</a></li>
+            <li><a href="#consumidor">Derechos del consumidor</a></li>
+            <li><a href="#accesibilidad">Accesibilidad</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pie-inferior">
+        <p>© 2026 CDGAMES. Todos los derechos reservados. <span class="idioma">Español ▾</span></p>
+        <div class="pagos">
+          <small>Métodos de pago:</small>
+          <span>Débito</span><span>Crédito</span><span>PSE</span><span>Efectivo</span><span>Regalo</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

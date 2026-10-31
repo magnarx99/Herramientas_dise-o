@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <!-- Esta línea hace que la página se adapte al ancho del celular -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CDGAMES | Eclipse Frontier</title>
+  <meta name="description" content="Eclipse Frontier en CDGAMES: aventura espacial de acción y exploración.">
+  <link rel="icon" href="img/logo-cdgames-peq.png">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+  <!-- ============ ENCABEZADO ============ -->
+  <header class="encabezado">
+    <div class="contenedor">
+      <div class="encabezado-superior">
+        <a class="logo" href="index.html" title="Ir al inicio">
+          <img src="img/logo-cdgames-peq.png" alt="Logo de CD Games: consola portátil con un disco que se derrite">
+        </a>
+        <p class="marca">CDGAMES</p>
+        <div class="controles" aria-hidden="true">
+          <div class="flechas"><span>&lsaquo;</span><span>&rsaquo;</span></div>
+          <div class="puntos"><span></span><span></span><span></span></div>
+        </div>
+      </div>
+
+      <nav class="barra-menu" aria-label="Menú principal">
+        <ul class="menu">
+          <li><a class="activo" href="index.html">Tienda</a></li>
+          <li><a href="biblioteca.html">Biblioteca</a></li>
+          <li><a href="#comunidad">Comunidad</a></li>
+          <li><a href="#perfil">Perfil</a></li>
+        </ul>
+        <div class="usuario">
+          <a class="boton boton-oscuro" href="#instalar">Instalar</a>
+          <span class="notificacion" title="Notificaciones">
+            <svg class="icono" viewBox="0 0 24 24"><path d="M6 16v-5a6 6 0 0 1 12 0v5l2 2H4z"/><path d="M10 21h4"/></svg>
+          </span>
+          <img class="avatar" src="img/avatar.svg" alt="Foto de perfil">
+        </div>
+      </nav>
+
+      <div class="submenu">
+        <ul>
+          <li><a class="activo" href="index.html">Principal</a></li>
+          <li><a href="#categorias">Categorías</a></li>
+          <li><a href="#novedades">Novedades</a></li>
+          <li><a href="#ofertas">Más vendidos</a></li>
+          <li><a href="#plataformas">Plataformas</a></li>
+        </ul>
+        <form class="buscador" role="search">
+          <svg class="icono" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input type="search" placeholder="Buscar en la tienda" aria-label="Buscar en la tienda">
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ CONTENIDO PRINCIPAL ============ -->
+  <main class="contenedor detalle">
+
+    <!-- Columna izquierda: información del juego -->
+    <div>
+      <h1>Eclipse Frontier</h1>
+      <ul class="etiquetas">
+        <li>Acción</li>
+        <li>Espacial</li>
+        <li>RPG</li>
+        <li>Mundo abierto</li>
+        <li>Multijugador</li>
+      </ul>
+
+      <img class="imagen-principal" src="img/eclipse-planeta.svg" alt="Nave espacial acercándose a un planeta con anillos">
+
+      <div class="galeria">
+        <img src="img/cap-cabina.svg" alt="Captura: cabina de la nave">
+        <img src="img/cap-estacion.svg" alt="Captura: estación espacial">
+        <img src="img/cap-nebulosa.svg" alt="Captura: nebulosa">
+        <img src="img/cap-salto.svg" alt="Captura: salto hiperespacial">
+        <img src="img/cap-mechas.svg" alt="Captura: robots de combate">
+      </div>
+
+      <h2 class="etiqueta-seccion">Sobre este juego</h2>
+      <p class="texto-juego">Eclipse Frontier te lleva a los confines de una galaxia en guerra. Construye y mejora tu nave, forma alianzas con otras tripulaciones y explora más de 100 sistemas solares generados de forma única. Cada decisión cambia el destino de la frontera: comercia, combate o descubre los secretos del eclipse que amenaza a toda la galaxia.</p>
+
+      <h2 class="etiqueta-seccion">Requisitos del sistema (recomendados)</h2>
+      <table class="requisitos">
+        <tr><th>Sistema operativo</th><td>Windows 10 / 11 de 64 bits</td></tr>
+        <tr><th>Procesador</th><td>Intel Core i5 de 10.ª generación o AMD Ryzen 5 3600</td></tr>
+        <tr><th>Memoria</th><td>16 GB de RAM</td></tr>
+        <tr><th>Gráficos</th><td>Tarjeta de video de 8 GB compatible con DirectX 12</td></tr>
+        <tr><th>Almacenamiento</th><td>75 GB de espacio disponible</td></tr>
+      </table>
+
+      <h2 class="etiqueta-seccion">Comentarios de la comunidad</h2>
+      <article class="comentario tarjeta">
+        <div class="comentario-cabecera">
+          <div class="autor">
+            <img src="img/avatar.svg" alt="Foto de perfil de AstroDani">
+            <span>AstroDani</span>
+          </div>
+          <span class="recomendado">👍 Lo recomienda</span>
+        </div>
+        <p>"Las batallas espaciales son increíbles y el mundo es enorme. Llevo 40 horas y sigo encontrando planetas nuevos. El modo cooperativo con amigos es lo mejor."</p>
+      </article>
+    </div>
+
+    <!-- Columna derecha: compra -->
+    <aside class="lateral">
+      <img src="img/eclipse-estelas.svg" alt="Planeta rodeado de estelas de luz de colores">
+
+      <div class="panel tarjeta">
+        <span class="insignia">Recomendado para tu biblioteca</span>
+        <h2>Comprar Eclipse Frontier</h2>
+        <p>Incluye el juego base y la expansión "Lunas de Orión".</p>
+        <div class="precio">
+          <span class="descuento">-20%</span>
+          <del>$199.900</del>
+          <strong>$159.900</strong>
+        </div>
+        <a class="boton boton-naranja" href="biblioteca.html">
+          <svg class="icono" viewBox="0 0 24 24"><path d="M3 4h2l2.4 11h11l2-8H6.5"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg>
+          Añadir al carrito
+        </a>
+        <p class="disponible">✔ Disponible para Windows, consola y en la nube</p>
+      </div>
+
+      <div class="panel tarjeta">
+        <h3>Amigos que lo juegan</h3>
+        <div class="amigos">
+          <img src="img/avatar.svg" alt="Amigo 1">
+          <img src="img/avatar.svg" alt="Amigo 2">
+          <span>2 amigos lo están jugando</span>
+          <span class="en-linea" title="En línea"></span>
+        </div>
+      </div>
+    </aside>
+
+  </main>
+
+  <!-- ============ PIE DE PÁGINA ============ -->
+  <footer class="pie">
+    <div class="contenedor">
+      <div class="pie-columnas">
+        <div>
+          <div class="pie-marca">
+            <img src="img/logo-cdgames-peq.png" alt="Logo de CD Games">
+            <span>CDGAMES</span>
+          </div>
+          <p>Tu tienda de videojuegos: descubre, compra y juega los mejores títulos con la comunidad gamer más grande de la región.</p>
+          <div class="redes">
+            <a href="#comunidad" title="Chat de la comunidad"><svg class="icono" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg></a>
+            <a href="#videos" title="Videos"><svg class="icono" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="m10 9 5 3-5 3z"/></svg></a>
+            <a href="#fotos" title="Fotos"><svg class="icono" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="14" rx="3"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l2-2h4l2 2"/></svg></a>
+            <a href="#correo" title="Correo"><svg class="icono" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <h3>Tienda</h3>
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="#novedades">Novedades</a></li>
+            <li><a href="#ofertas">Más vendidos</a></li>
+            <li><a href="#ofertas">Ofertas</a></li>
+            <li><a href="#proximamente">Próximamente</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Ayuda</h3>
+          <ul>
+            <li><a href="#ayuda">Centro de ayuda</a></li>
+            <li><a href="#estado">Estado del servicio</a></li>
+            <li><a href="#reembolsos">Reembolsos</a></li>
+            <li><a href="#seguridad">Seguridad de la cuenta</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Empresa</h3>
+          <ul>
+            <li><a href="#acerca">Acerca de</a></li>
+            <li><a href="#empleo">Trabaja con nosotros</a></li>
+            <li><a href="#prensa">Prensa</a></li>
+            <li><a href="#desarrolladores">Desarrolladores</a></li>
+            <li><a href="#blog">Blog</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="#terminos">Términos del servicio</a></li>
+            <li><a href="#privacidad">Política de privacidad</a></li>
+            <li><a href="#cookies">Política de cookies</a></li>
+            <li><a href="#consumidor">Derechos del consumidor</a></li>
+            <li><a href="#accesibilidad">Accesibilidad</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pie-inferior">
+        <p>© 2026 CDGAMES. Todos los derechos reservados. <span class="idioma">Español ▾</span></p>
+        <div class="pagos">
+          <small>Métodos de pago:</small>
+          <span>Débito</span><span>Crédito</span><span>PSE</span><span>Efectivo</span><span>Regalo</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

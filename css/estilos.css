@@ -1,0 +1,1120 @@
+/* =====================================================================
+   CDGAMES – Hoja de estilos
+   Un solo archivo CSS para las tres páginas (index, juego y biblioteca).
+   Orden: 1) variables  2) base  3) encabezado  4) contenido de cada página
+          5) pie de página  6) diseño adaptable (responsive)
+   ===================================================================== */
+
+/* ---------- 0. TIPOGRAFÍAS (incluidas en la carpeta fuentes, funcionan sin internet) ---------- */
+@font-face {
+  font-family: 'Silkscreen';
+  src: url('../fuentes/Silkscreen-400.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rubik';
+  src: url('../fuentes/Rubik-400.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rubik';
+  src: url('../fuentes/Rubik-500.woff2') format('woff2');
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rubik';
+  src: url('../fuentes/Rubik-700.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+}
+
+/* ---------- 1. VARIABLES: la paleta de colores en un solo lugar ---------- */
+:root {
+  --azul: #1b365d;          /* azul marino: tarjetas y pie de página */
+  --azul-claro: #3b79b2;    /* azul de apoyo: detalles y bordes */
+  --azul-noche: #101a2e;    /* azul casi negro: botones oscuros y banner premium */
+  --naranja-fondo: #c55230; /* naranja quemado: fondo del contenido */
+  --naranja: #e85a31;       /* naranja vivo: botones y elemento activo */
+  --gris: #9d9c9c;          /* gris del cuerpo de la consola del logo: encabezado */
+  --negro: #191919;         /* negro de la pantalla del logo */
+  --amarillo: #f6b819;      /* amarillo del disco del logo: etiquetas */
+  --rojo: #e3170a;          /* rojo del botón de la consola */
+  --verde: #2fb344;         /* verde del botón de la consola: descuentos y "en línea" */
+  --blanco: #ffffff;
+  --texto-suave: #c9d3e1;   /* texto secundario sobre azul */
+
+  --radio: 12px;            /* esquinas redondeadas de las tarjetas */
+  --sombra: 0 6px 18px rgba(0, 0, 0, 0.25);
+  --fuente: 'Rubik', 'Segoe UI', Arial, sans-serif;
+  --fuente-pixel: 'Silkscreen', 'Courier New', monospace;
+}
+
+/* ---------- 2. BASE ---------- */
+* {
+  box-sizing: border-box;   /* el ancho incluye el relleno y el borde */
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--fuente);
+  color: var(--blanco);
+  background-color: var(--naranja-fondo);
+  line-height: 1.5;
+}
+
+img {
+  display: block;
+  max-width: 100%;          /* las imágenes nunca se salen de su contenedor */
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Contenedor: centra el contenido y limita su ancho en pantallas grandes */
+.contenedor {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Títulos pequeños en mayúsculas ("RECOMENDADOS", "OFERTAS ESPECIALES"...) */
+.etiqueta-seccion {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 28px 0 12px;
+}
+
+/* Botones */
+.boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-family: var(--fuente);
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: transform 0.15s, filter 0.15s;
+}
+
+.boton:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+}
+
+.boton-naranja {
+  background-color: var(--naranja);
+  color: var(--blanco);
+}
+
+.boton-oscuro {
+  background-color: var(--azul-noche);
+  color: var(--naranja);
+}
+
+/* Etiqueta verde de descuento y precio */
+.precio {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+}
+
+.descuento {
+  background-color: var(--verde);
+  color: var(--blanco);
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.precio del {
+  color: var(--texto-suave);
+  font-size: 0.8rem;
+}
+
+.precio strong {
+  color: #7dff8f;
+}
+
+/* Etiqueta amarilla ("NUEVO", "RECOMENDADO PARA TI") */
+.insignia {
+  display: inline-block;
+  background-color: var(--amarillo);
+  color: var(--negro);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 4px;
+}
+
+/* Tarjeta azul reutilizable */
+.tarjeta {
+  background-color: var(--azul);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  overflow: hidden;         /* recorta la imagen con las esquinas redondeadas */
+}
+
+/* Íconos SVG dentro del texto */
+.icono {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ---------- 3. ENCABEZADO (igual en las tres páginas) ---------- */
+.encabezado {
+  background-color: var(--gris);
+}
+
+.encabezado-superior {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;   /* logo | marca centrada | controles */
+  align-items: center;
+  padding-top: 10px;
+}
+
+.logo img {
+  width: 54px;
+}
+
+.marca {
+  font-family: var(--fuente-pixel);
+  font-size: 2.8rem;
+  line-height: 1.1;
+  color: var(--blanco);
+  letter-spacing: 0.02em;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.25);
+}
+
+.controles {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 40px;
+}
+
+.flechas {
+  display: flex;
+  gap: 6px;
+}
+
+.flechas span {
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+  background-color: var(--azul-noche);
+  color: var(--blanco);
+  font-size: 0.8rem;
+  display: grid;
+  place-items: center;
+}
+
+/* Los tres puntos de colores son los botones del logo (rojo, amarillo, verde) */
+.puntos {
+  display: flex;
+  gap: 6px;
+}
+
+.puntos span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.puntos span:nth-child(1) { background-color: var(--rojo); }
+.puntos span:nth-child(2) { background-color: var(--amarillo); }
+.puntos span:nth-child(3) { background-color: var(--verde); }
+
+/* Menú principal */
+.barra-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 6px 0 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.menu {
+  display: flex;
+  gap: 28px;
+}
+
+.menu a {
+  display: block;
+  padding: 10px 0;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--negro);
+  border-bottom: 3px solid transparent;
+}
+
+.menu a:hover,
+.menu a.activo {
+  color: var(--naranja);
+  border-bottom-color: var(--naranja);   /* línea naranja bajo la página actual */
+}
+
+.usuario {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.usuario .boton {
+  padding: 7px 18px;
+  font-size: 0.75rem;
+}
+
+.notificacion {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--rojo);
+  display: grid;
+  place-items: center;
+  color: var(--blanco);
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid var(--azul-noche);
+}
+
+/* Submenú con buscador (tienda y detalle del juego) */
+.submenu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 0;
+}
+
+.submenu ul {
+  display: flex;
+  gap: 8px;
+}
+
+.submenu a {
+  display: block;
+  padding: 5px 16px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--negro);
+}
+
+.submenu a:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.submenu a.activo {
+  background-color: var(--negro);
+  color: var(--blanco);
+}
+
+.buscador {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--azul-noche);
+  color: var(--texto-suave);
+  border-radius: 6px;
+  padding: 6px 12px;
+  width: 260px;
+}
+
+.buscador input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--blanco);
+  font-family: var(--fuente);
+  width: 100%;
+}
+
+.buscador input::placeholder {
+  color: var(--texto-suave);
+}
+
+/* ---------- 4A. PÁGINA DE INICIO (TIENDA) ---------- */
+.destacado {
+  display: grid;
+  grid-template-columns: 2.2fr 1fr;      /* imagen grande | información */
+}
+
+.destacado > img {
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  object-fit: cover;
+}
+
+.destacado-info {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 28px 24px;
+}
+
+.destacado-info h1 {
+  font-size: 1.6rem;
+  line-height: 1.2;
+}
+
+.destacado-info p {
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+}
+
+.destacado-info h2 {
+  margin-top: auto;                      /* empuja las capturas hacia abajo */
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: var(--texto-suave);
+}
+
+.capturas {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+}
+
+.capturas img {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.compra {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+/* Rejilla de ofertas: 3 columnas en computador */
+.ofertas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.juego img {
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  object-fit: cover;
+}
+
+.juego-info {
+  padding: 12px 14px 14px;
+}
+
+.juego-info h3 {
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+}
+
+.juego-pie {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.gratis {
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.carrito {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background-color: var(--azul-noche);
+  display: grid;
+  place-items: center;
+  color: var(--verde);
+}
+
+.carrito .icono {
+  width: 15px;
+  height: 15px;
+}
+
+/* Banner de suscripción */
+.premium {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 28px 0 36px;
+  padding: 24px 28px;
+  border-radius: var(--radio);
+  background: linear-gradient(90deg, var(--azul-noche), #1d2a44);
+  box-shadow: var(--sombra);
+}
+
+.premium h2 {
+  font-size: 1.3rem;
+  letter-spacing: 0.04em;
+  margin: 8px 0 4px;
+}
+
+.premium p {
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+}
+
+.premium-precio {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+/* ---------- 4B. PÁGINA DEL JUEGO ---------- */
+.detalle {
+  display: grid;
+  grid-template-columns: 2fr 1fr;        /* contenido | columna de compra */
+  gap: 28px;
+  padding-top: 24px;       /* solo arriba y abajo: los lados los da .contenedor */
+  padding-bottom: 40px;
+}
+
+.detalle h1 {
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+.etiquetas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 10px 0 20px;
+}
+
+.etiquetas li {
+  background-color: var(--azul);
+  font-size: 0.7rem;
+  padding: 2px 10px;
+  border-radius: 4px;
+}
+
+.imagen-principal {
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  object-fit: cover;
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+}
+
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.galeria img {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 2px solid transparent;
+}
+
+.galeria img:hover {
+  border-color: var(--amarillo);
+}
+
+.texto-juego {
+  font-size: 0.9rem;
+}
+
+/* Tabla de requisitos */
+.requisitos {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 4px;                 /* separa las filas como en el diseño */
+  font-size: 0.85rem;
+}
+
+.requisitos th,
+.requisitos td {
+  background-color: var(--azul);
+  padding: 8px 12px;
+}
+
+.requisitos th {
+  text-align: left;
+  border-radius: 4px 0 0 4px;
+}
+
+.requisitos td {
+  text-align: right;
+  color: var(--texto-suave);
+  border-radius: 0 4px 4px 0;
+}
+
+.comentario {
+  padding: 16px;
+}
+
+.comentario-cabecera {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.autor {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.autor img {
+  width: 28px;
+  border-radius: 50%;
+}
+
+.recomendado {
+  color: #7dff8f;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.comentario p {
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+}
+
+.lateral {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.lateral > img {
+  border-radius: var(--radio);
+  aspect-ratio: 2 / 1;
+  object-fit: cover;
+  box-shadow: var(--sombra);
+}
+
+.panel {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.panel .insignia {
+  align-self: flex-start;  /* la etiqueta mide solo lo que mide su texto */
+}
+
+.panel h2 {
+  font-size: 1.05rem;
+}
+
+.panel p {
+  font-size: 0.8rem;
+  color: var(--texto-suave);
+}
+
+.panel .boton {
+  width: 100%;
+  padding: 12px;
+}
+
+.disponible {
+  text-align: center;
+  color: #7dff8f;
+  font-size: 0.75rem;
+}
+
+.panel h3 {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.amigos {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: var(--texto-suave);
+}
+
+.amigos img {
+  width: 28px;
+  border-radius: 50%;
+}
+
+.en-linea {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--verde);
+}
+
+/* ---------- 4C. PÁGINA DE BIBLIOTECA ---------- */
+.biblioteca {
+  display: grid;
+  grid-template-columns: 240px 1fr;      /* menú lateral | contenido */
+  min-height: 640px;
+}
+
+.barra-lateral {
+  background-color: var(--gris);
+  padding: 16px;
+  color: var(--negro);
+}
+
+.barra-lateral .buscador {
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.barra-lateral h2 {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  margin: 14px 0 8px;
+}
+
+.filtro {
+  font-size: 0.8rem;
+}
+
+.lista-juegos a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.lista-juegos a:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.lista-juegos a.activo {
+  background-color: var(--azul-noche);
+  color: var(--blanco);
+}
+
+.miniatura {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.estado {
+  margin-left: auto;                     /* empuja el punto al extremo derecho */
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--verde);
+}
+
+.estado.actualizar {
+  background-color: var(--azul-claro);
+}
+
+.portada-juego {
+  position: relative;
+  min-height: 300px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* degradado oscuro encima de la imagen para que el texto se lea */
+  background: linear-gradient(90deg, rgba(10, 15, 26, 0.85), rgba(10, 15, 26, 0.2)),
+              url('../img/biblioteca-cabina.svg') center / cover;
+}
+
+.portada-juego h1 {
+  font-size: 2rem;
+}
+
+.portada-juego .etiquetas li {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.jugar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 28px;
+}
+
+.jugar .boton {
+  padding: 12px 36px;
+  font-size: 1rem;
+}
+
+.estadistica {
+  font-size: 0.75rem;
+  color: var(--texto-suave);
+}
+
+.estadistica strong {
+  display: block;
+  color: var(--blanco);
+}
+
+.ajustes {
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.12);
+  display: grid;
+  place-items: center;
+}
+
+.biblioteca-contenido {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 24px;
+  padding: 0 24px 32px;
+  align-items: start;
+}
+
+.noticia img {
+  width: 100%;
+  aspect-ratio: 4 / 1;
+  object-fit: cover;
+}
+
+.noticia-texto {
+  padding: 14px 16px 16px;
+}
+
+.noticia-texto span {
+  color: var(--naranja);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.noticia-texto h3 {
+  font-size: 0.95rem;
+  margin: 4px 0;
+}
+
+.noticia-texto p {
+  font-size: 0.8rem;
+  color: var(--texto-suave);
+}
+
+.logros {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.logro {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+}
+
+.logro-icono {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  color: var(--negro);
+}
+
+.logro h3 {
+  font-size: 0.85rem;
+}
+
+.logro p {
+  font-size: 0.75rem;
+  color: var(--texto-suave);
+}
+
+/* ---------- 5. PIE DE PÁGINA ---------- */
+.pie {
+  background-color: var(--azul);
+  padding-top: 36px;
+  font-size: 0.8rem;
+}
+
+.pie-columnas {
+  display: grid;
+  grid-template-columns: 1.6fr repeat(4, 1fr);   /* marca + 4 columnas de enlaces */
+  gap: 24px;
+}
+
+.pie-marca {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.pie-marca img {
+  width: 44px;
+}
+
+.pie-columnas p {
+  color: var(--texto-suave);
+  max-width: 280px;
+}
+
+.redes {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.redes a {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: var(--azul-noche);
+  display: grid;
+  place-items: center;
+}
+
+.redes a:hover {
+  background-color: var(--naranja);
+}
+
+.redes .icono {
+  width: 15px;
+  height: 15px;
+}
+
+.pie h3 {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: var(--texto-suave);
+  margin-bottom: 10px;
+}
+
+.pie li {
+  margin-bottom: 6px;
+}
+
+.pie li a:hover {
+  color: var(--naranja);
+}
+
+.pie-inferior {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
+  padding: 16px 0 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--texto-suave);
+  font-size: 0.75rem;
+}
+
+.idioma {
+  display: inline-block;
+  margin-left: 14px;
+  padding: 3px 12px;
+  border-radius: 6px;
+  background-color: var(--azul-noche);
+}
+
+.pagos {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.pagos span {
+  padding: 3px 10px;
+  border-radius: 4px;
+  background-color: var(--azul-noche);
+  color: var(--blanco);
+  font-weight: 700;
+  font-size: 0.65rem;
+}
+
+/* ---------- 6. DISEÑO ADAPTABLE (RESPONSIVE) ---------- */
+
+/* Tabletas y portátiles pequeños: menos de 900 px de ancho */
+@media (max-width: 900px) {
+  .destacado,
+  .detalle,
+  .biblioteca-contenido {
+    grid-template-columns: 1fr;          /* todo en una sola columna */
+  }
+
+  .destacado > img {
+    min-height: 220px;
+  }
+
+  .ofertas {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pie-columnas {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pie-columnas > div:first-child {
+    grid-column: 1 / -1;                 /* la marca ocupa toda la fila */
+  }
+
+  .biblioteca {
+    grid-template-columns: minmax(0, 1fr);   /* minmax(0, …) evita que la lista estire la página */
+  }
+
+  .lista-juegos {
+    display: flex;                       /* la lista se vuelve una fila deslizable */
+    overflow-x: auto;
+    gap: 6px;
+  }
+
+  .lista-juegos a {
+    white-space: nowrap;
+  }
+
+  .controles .flechas {
+    display: none;
+  }
+}
+
+/* Celulares: menos de 600 px de ancho */
+@media (max-width: 600px) {
+  .contenedor {
+    padding: 0 16px;
+  }
+
+  .encabezado-superior {
+    grid-template-columns: auto 1fr auto;
+    gap: 12px;
+  }
+
+  .logo img {
+    width: 42px;
+  }
+
+  .marca {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+
+  .barra-menu {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+  }
+
+  .menu {
+    gap: 18px;
+    overflow-x: auto;                    /* si no cabe, se desliza con el dedo */
+  }
+
+  .usuario {
+    justify-content: flex-end;
+    padding-bottom: 8px;
+  }
+
+  .submenu {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .submenu ul {
+    overflow-x: auto;
+  }
+
+  .submenu a {
+    white-space: nowrap;
+  }
+
+  .buscador {
+    width: 100%;
+  }
+
+  .ofertas {
+    grid-template-columns: 1fr;          /* una tarjeta debajo de otra */
+  }
+
+  .galeria {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .premium {
+    padding: 20px;
+  }
+
+  .detalle h1,
+  .portada-juego h1 {
+    font-size: 1.5rem;
+  }
+
+  .portada-juego {
+    padding: 20px;
+  }
+
+  .biblioteca-contenido {
+    padding: 0 16px 24px;
+  }
+
+  .pie-columnas {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .pie-inferior {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
